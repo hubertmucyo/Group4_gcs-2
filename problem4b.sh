@@ -9,16 +9,16 @@ fi
 # Read each line from the text file and create folders
 while IFS= read -r foldername; do
     # Remove leading and trailing whitespace from the folder name
-    folder_name=$(echo "$folder_name" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+    fileread=$(echo "$fileread" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 
     # Check if the folder name is not empty
-    if [ -n "$folder_name" ]; then
+    if [ -n "$fileread" ]; then
         # Create the folder if it doesn't exist
-        if [ ! -d "$folder_name" ]; then
-            mkdir "$folder_name"
-            echo "Folder '$folder_name' created."
+        if [ ! -d "$fileread" ]; then
+            mkdir "$fileread"
+            echo "Folder '$fileread' created."
         else
-            echo "Folder '$folder_name' already exists."
+            echo "Folder '$fileread' already exists."
         fi
     fi
 done < fileread.txt
